@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './layout/components/home/home.component';
+import { AboutComponent, HomeComponent } from './layout';
 
 const routes: Routes = [
   {
@@ -8,12 +8,12 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: '',
-        component: AboutComponent
-      },
-      {
         path: 'endpoints',
         loadChildren: './endpoints/endpoints.module#EndpointsModule'
+      },
+      {
+        path: '',
+        component: AboutComponent
       }
     ]
   }
@@ -23,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
